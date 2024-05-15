@@ -1,4 +1,4 @@
-#One Shot
+# One Shot
 
 1. A game where a player gets only one bullet.
 2. Player has to complete level using only one bullet.
