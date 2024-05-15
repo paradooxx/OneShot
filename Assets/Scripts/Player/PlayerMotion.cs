@@ -37,6 +37,7 @@ public class PlayerMotion : MonoBehaviour
             if(Input.GetKey(KeyCode.Mouse0) && !isShot)
             {
                 StartCoroutine(Shoot());
+                bullet.transform.parent = null;
             }
         }
     }
@@ -93,12 +94,18 @@ public class PlayerMotion : MonoBehaviour
         isShot = true;
     }
 
+    private void ReparentToPlayer()
+    {
+        bullet.transform.parent = playerTransform;
+    }
+
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if(collider.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             collider.gameObject.SetActive(false);
             collider.gameObject.transform.position = bulletStartPosition;
+            ReparentToPlayer();
             isShot = false;
         }
     }
