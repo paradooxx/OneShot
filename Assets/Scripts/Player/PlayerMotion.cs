@@ -8,21 +8,20 @@ public class PlayerMotion : MonoBehaviour
     private Transform playerTransform;
     
     [SerializeField] private GameObject bullet;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float bulletForce = 10f;
+    [SerializeField] private float 
+                speed = 5f,
+                bulletForce = 10f,
+                nextTimeToShoot = -1f,
+                bulletFireRate = 4f;        
 
-    private float nextTimeToShoot = -1f;
-    private float bulletFireRate = 4f;  
-
-    private Vector2 bulletStartPosition;
-
+    [SerializeField] private Transform shootPoint;
+    
     private bool isShot = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
-        bulletStartPosition = bullet.transform.position;
         playerTransform = transform;
     }
 
@@ -37,7 +36,10 @@ public class PlayerMotion : MonoBehaviour
             if(Input.GetKey(KeyCode.Mouse0) && !isShot)
             {
                 StartCoroutine(Shoot());
-                bullet.transform.parent = null;
+                if(bullet != null)
+                {
+                    bullet.transform.parent = null;
+                }
             }
         }
     }
@@ -83,7 +85,7 @@ public class PlayerMotion : MonoBehaviour
         Vector3 direction = mousePosition - playerTransform.position;
         direction.Normalize();
 
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        Rigidbody2D bulletRb = bullet?.GetComponent<Rigidbody2D>();
 
         bulletRb.velocity = direction * bulletForce;
 
@@ -104,7 +106,7 @@ public class PlayerMotion : MonoBehaviour
         if(collider.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             collider.gameObject.SetActive(false);
-            collider.gameObject.transform.position = bulletStartPosition;
+            collider.gameObject.transform.position = shootPoint.position;
             ReparentToPlayer();
             isShot = false;
         }

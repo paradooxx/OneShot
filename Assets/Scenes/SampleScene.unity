@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139295687}
   - component: {fileID: 139295686}
+  - component: {fileID: 139295688}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -152,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806814b77134821478003083e2a3d8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletGameObject: {fileID: 0}
+  bulletGameObject: {fileID: 1458894820}
+  enemyGameObject: {fileID: 1593640167}
 --- !u!4 &139295687
 Transform:
   m_ObjectHideFlags: 0
@@ -168,6 +170,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &139295688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139295685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b487ddfeb912dad458a0351de8643d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &201416384
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873749512231878922, guid: c99a2bd0d3dc8694e81b8a5e40f3ddac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5999999
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 8873749512231878922, guid: c99a2bd0d3dc8694e81b8a5e40f3ddac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1827,6 +1841,9 @@ MonoBehaviour:
   bullet: {fileID: 1458894820}
   speed: 7
   bulletForce: 10
+  nextTimeToShoot: -1
+  bulletFireRate: 4
+  shootPoint: {fileID: 1103426039}
 --- !u!60 &2092756791
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1871,8 +1888,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.4366965, y: 1.1313143}
-      - {x: -0.35455748, y: 1.1335206}
+    - - {x: 0.6586573, y: 1.099606}
+      - {x: -0.5765183, y: 1.1176662}
       - {x: -0.47706103, y: 0.22283533}
       - {x: -0.3795144, y: -0.38529384}
       - {x: 0.35958987, y: -0.40396953}

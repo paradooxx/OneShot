@@ -18,12 +18,14 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            GameStatusManager.EnemyDestroyed();
         }
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
         {
             Destroy(gameObject);
+            GameStatusManager.BulletDestroyed();
         }
     }
 }
