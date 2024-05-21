@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> enemyGameObject;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Repeller"))
@@ -15,17 +18,29 @@ public class Bullet : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            Destroy(collision.gameObject);
-            gameObject.SetActive(false);
-            GameStatusManager.EnemyDestroyed();
-        }
-
         if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
         {
             Destroy(gameObject);
             GameStatusManager.BulletDestroyed();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Destroy(collider.gameObject);
+            enemyGameObject.Remove(collider.gameObject);
+            GameWin();
+        }
+    }
+
+    private void GameWin()
+    {
+        if(enemyGameObject.Count == 0)
+        {
+            GameStatusManager.EnemyDestroyed();
+            gameObject.SetActive(false);
         }
     }
 }

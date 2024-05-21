@@ -1,42 +1,60 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private float timer = 0f;
-    private bool moveRight = true;
-
     [SerializeField] private float velocity = 2.8f;
+
+    [SerializeField] private List<Vector2> movePoints;
+
+    private Vector2 
+        targetPosition,
+        currentPosition,
+        direction;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if(movePoints.Count > 0)
+        {
+            ChooseNewTargetPosition();
+        }
+        else
+        {
+            return;
+        }
     }
 
-    void Update()
+    private void ChooseNewTargetPosition()
+    {
+        if(movePoints.Count > 0)
+        {
+            targetPosition = movePoints[Random.Range(0, movePoints.Count)];
+        }
+    }
+
+    void FixedUpdate()
     {
         MoveEnemy();
     }
 
     private void MoveEnemy()
     {
-        timer += Time.deltaTime;
+        if(movePoints.Count == 0)  return;
 
-        if (timer >= 2f)
+        currentPosition = rb.position;
+        if(Vector2.Distance(currentPosition, targetPosition) < 0.1f)
         {
-            moveRight = !moveRight;
-
-            timer = 0f;
-        }
-
-        if (moveRight)
-        {
-            rb.velocity = new Vector2(velocity, 0);
+            ChooseNewTargetPosition();
         }
         else
         {
-            rb.velocity = new Vector2(-velocity, 0);
+            direction = (targetPosition - currentPosition).normalized;
+            rb.velocity = direction * velocity;
         }
     }
 }

@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject
-                    bulletGameObject,
-                    enemyGameObject;
-
-
     private void Awake()
     {
         GameStatusManager.OnBulletDestroyed += GameLoseStatus;
