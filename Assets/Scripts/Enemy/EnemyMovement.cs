@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -19,19 +18,27 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        if(movePoints.Count > 0)
+        if (rb == null)
+        {
+            return;
+        }
+
+        // Set Rigidbody2D to kinematic
+        rb.isKinematic = true;
+
+        if (movePoints.Count > 0)
         {
             ChooseNewTargetPosition();
         }
         else
         {
-            return;
+            Debug.LogWarning("No move points set!");
         }
     }
 
     private void ChooseNewTargetPosition()
     {
-        if(movePoints.Count > 0)
+        if (movePoints.Count > 0)
         {
             targetPosition = movePoints[Random.Range(0, movePoints.Count)];
         }
@@ -44,10 +51,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void MoveEnemy()
     {
-        if(movePoints.Count == 0)  return;
+        if (movePoints.Count == 0) return;
 
         currentPosition = rb.position;
-        if(Vector2.Distance(currentPosition, targetPosition) < 0.1f)
+
+        if (Vector2.Distance(currentPosition, targetPosition) < 0.1f)
         {
             ChooseNewTargetPosition();
         }
