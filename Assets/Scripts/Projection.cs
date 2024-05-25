@@ -12,10 +12,10 @@ public class Projection : MonoBehaviour
 
     private void Start()
     {
-        CreatePhysicsScene();
+        //CreatePhysicsScene();
     }
 
-    private void CreatePhysicsScene()
+    public void CreatePhysicsScene()
     {
         simulationScene = SceneManager.CreateScene("Simulation", new CreateSceneParameters(LocalPhysicsMode.Physics2D));
         physicsScene = simulationScene.GetPhysicsScene2D();

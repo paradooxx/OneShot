@@ -13,19 +13,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /* if (collision.gameObject.layer == LayerMask.NameToLayer("Repeller"))
-        {
-            Vector2 repelDirection = ((Vector2)transform.position - collision.contacts[0].point).normalized;
-
-            GetComponent<Rigidbody2D>().velocity = repelDirection * 10f;
-
-            float angle = Mathf.Atan2(repelDirection.y, repelDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        } */
-
         if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
         {
             Destroy(gameObject);
+            PlayerMotion.hintTaken = false;
             GameStatusManager.BulletDestroyed();
         }
     }
@@ -36,6 +27,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(collider.gameObject);
             enemyGameObject.Remove(collider.gameObject);
+            PlayerMotion.hintTaken = false;
             GameWin();
         }
     }
