@@ -15,6 +15,10 @@ public class PlayerMotion : MonoBehaviour
                 bulletFireRate = 4f;        
 
     [SerializeField] private Transform shootPoint;
+
+    [SerializeField] private Projection projection;
+
+    [SerializeField] private Bullet projectBulletPrefab;
     
     private bool isShot = false;
 
@@ -42,6 +46,13 @@ public class PlayerMotion : MonoBehaviour
                 }
             }
         }
+        projection.SimulateTrajectory(projectBulletPrefab, shootPoint.position, GetVelocity());
+    }
+
+    private void Update()
+    {
+        
+        
     }
 
     private void HorizontalMovement()
@@ -73,6 +84,17 @@ public class PlayerMotion : MonoBehaviour
         playerTransform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
     }
 
+    private Vector2 GetVelocity()
+    {
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f;
+
+        Vector3 direction = mousePosition - playerTransform.position;
+        direction.Normalize();
+
+        return direction * bulletForce;
+    }
+
     private IEnumerator Shoot()
     {
         bullet.SetActive(true);
@@ -92,7 +114,6 @@ public class PlayerMotion : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
 
-        Debug.Log("Shootot");
         isShot = true;
     }
 
