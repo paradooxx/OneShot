@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PolygonCollider2D))]
 public class SpriteToMesh : MonoBehaviour
 {
-    public Sprite sprite;  // Assign this in the Inspector
+    public Sprite sprite;  
 
     void Start()
     {

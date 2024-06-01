@@ -78,7 +78,6 @@ public class PlayerMotion : MonoBehaviour
         }
     }
 
-
     public void TakeHint()
     {
         hintTaken = true;

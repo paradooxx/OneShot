@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private UIManager uIManager;
+
     private void Awake()
     {
         GameStatusManager.OnBulletDestroyed += GameLoseStatus;
@@ -11,22 +13,22 @@ public class GameManager : MonoBehaviour
 
     private void GameWinStatus()
     {
-        Debug.Log("WINNNNNNNNNN");
-        QuitGame();
+        uIManager.GameWinScreenActivate();
     }
 
     private void GameLoseStatus()
     {
-        Debug.Log("LOSEEEEEEEEE");
-        QuitGame();
+        uIManager.GameLooseScreenActivate();
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         #if UNITY_EDITOR
                 EditorApplication.isPlaying = false;
         #else
                 Application.Quit();
         #endif
+
+        uIManager.Deactivate();
     }
 }
