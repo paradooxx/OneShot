@@ -23,12 +23,18 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        #if UNITY_EDITOR
+        /* #if UNITY_EDITOR
                 EditorApplication.isPlaying = false;
         #else
                 Application.Quit();
-        #endif
+        #endif */
 
         uIManager.Deactivate();
+    }
+
+    private void OnDestroy() 
+    {
+        GameStatusManager.OnBulletDestroyed -= GameLoseStatus;
+        GameStatusManager.OnEnemyDestroyed -= GameWinStatus;
     }
 }
