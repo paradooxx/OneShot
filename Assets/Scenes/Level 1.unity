@@ -3838,6 +3838,7 @@ MonoBehaviour:
   mainMenuButton: {fileID: 877331782}
   buttonMainMenu: {fileID: 877331784}
   buttonRetry: {fileID: 1971869043}
+  buttonReplay: {fileID: 1957477764}
 --- !u!1 &23683425221836070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,6 +4056,10 @@ PrefabInstance:
       value: BounceBack (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5548458160464890713, guid: 221710791aa4bb24095bcc1e41470f48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548458160464890713, guid: 221710791aa4bb24095bcc1e41470f48, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: b8214af546b0978409e979b9eaf99046, type: 2}
@@ -4102,7 +4107,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2891769188152279814, guid: 221710791aa4bb24095bcc1e41470f48, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

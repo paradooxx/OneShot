@@ -10,13 +10,14 @@ public class UIManager : MonoBehaviour
 
     //[Tooltip("Buttons")]
     [SerializeField] private Button buttonMainMenu,
-                                    buttonRetry;
+                                    buttonRetry,
+                                    buttonReplay;
 
     private void Awake()
     {
-        /* gameWinScreen.SetActive(false);
+        gameWinScreen.SetActive(false);
         gameLooseScreen.SetActive(false);
-        mainMenuButton.SetActive(false); */
+        mainMenuButton.SetActive(false);
     }
 
     private void Start()
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
         Debug.Log(LevelManager.instance);
         buttonMainMenu?.onClick.AddListener(() => LevelManager.instance.LoadLevel(0));
         buttonRetry?.onClick.AddListener(() => LevelManager.instance.ReLoadLevel());
+        buttonReplay?.onClick.AddListener(() => LevelManager.instance.ReLoadLevel());
     }
 
     public void GameWinScreenActivate()
