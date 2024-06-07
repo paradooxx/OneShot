@@ -2489,7 +2489,6 @@ GameObject:
   - component: {fileID: 1424467793}
   - component: {fileID: 1424467792}
   - component: {fileID: 1424467794}
-  - component: {fileID: 1424467795}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2557,18 +2556,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &1424467795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424467790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2fcc717b9e383a48999f4f731f03f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1469737918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,7 +3862,6 @@ MonoBehaviour:
   buttonMainMenu: {fileID: 877331784}
   buttonRetry: {fileID: 1971869043}
   buttonReplay: {fileID: 1957477764}
-  buttonNextLevel: {fileID: 29166024}
 --- !u!1 &23683425221836070
 GameObject:
   m_ObjectHideFlags: 0

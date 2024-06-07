@@ -11,7 +11,8 @@ public class UIManager : MonoBehaviour
     //[Tooltip("Buttons")]
     [SerializeField] private Button buttonMainMenu,
                                     buttonRetry,
-                                    buttonReplay;
+                                    buttonReplay,
+                                    buttonNextLevel;
 
     private void Awake()
     {
@@ -26,18 +27,17 @@ public class UIManager : MonoBehaviour
         buttonMainMenu?.onClick.AddListener(() => LevelManager.instance.LoadLevel(0));
         buttonRetry?.onClick.AddListener(() => LevelManager.instance.ReLoadLevel());
         buttonReplay?.onClick.AddListener(() => LevelManager.instance.ReLoadLevel());
+        buttonNextLevel?.onClick.AddListener(() => LevelManager.instance.LoadNextLevel());
     }
 
     public void GameWinScreenActivate()
     {
         gameWinScreen.SetActive(true);
-        gameLooseScreen.SetActive(false);
         mainMenuButton.SetActive(true);
     }
 
     public void GameLooseScreenActivate()
     {
-        gameWinScreen.SetActive(false);
         gameLooseScreen.SetActive(true);
         mainMenuButton.SetActive(true);
     }
