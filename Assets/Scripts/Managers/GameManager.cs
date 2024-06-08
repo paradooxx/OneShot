@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private UIManager uIManager;
+    [SerializeField] private UIManager uiManager;
 
     private void Awake()
     {
@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
 
     private void GameWinStatus()
     {
-        uIManager.GameWinScreenActivate();
+        uiManager.GameWinScreenActivate();
     }
 
     private void GameLoseStatus()
     {
-        uIManager.GameLooseScreenActivate();
+        uiManager.GameLooseScreenActivate();
     }
 
     public void QuitGame()
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
                 Application.Quit();
         #endif */
 
-        uIManager.Deactivate();
+        uiManager.Deactivate();
     }
 
     private void OnDestroy() 
