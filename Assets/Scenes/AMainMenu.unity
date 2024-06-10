@@ -473,19 +473,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 177688165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 833277554}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: StartLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &177688165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245960324}
   - component: {fileID: 245960325}
+  - component: {fileID: 245960326}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -569,6 +558,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPanel: {fileID: 544268170}
+  buttonStart: {fileID: 177688164}
+  buttonLevelSelect: {fileID: 1516797057}
+  buttonLevelMenuExit: {fileID: 802414461}
+--- !u!114 &245960326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245960323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c8e735274705f4881fff11a0ddefc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelButton:
+  - {fileID: 1345194806}
+  - {fileID: 740952247}
+  - {fileID: 277427682}
+  - {fileID: 690746484}
+  - {fileID: 1150671063}
 --- !u!1 &263700072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,19 +1463,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 802414462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245960325}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: LevelMenuExitClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &802414462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,7 +1512,6 @@ GameObject:
   m_Component:
   - component: {fileID: 833277553}
   - component: {fileID: 833277554}
-  - component: {fileID: 833277555}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1549,24 +1546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e76e1be152820244a3fe4698079e0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &833277555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833277552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c8e735274705f4881fff11a0ddefc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelButton:
-  - {fileID: 1345194806}
-  - {fileID: 740952247}
-  - {fileID: 277427682}
-  - {fileID: 690746484}
-  - {fileID: 1150671063}
 --- !u!1 &1093898585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,19 +2082,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1516797058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245960325}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: ActivateLevelPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1516797058
 MonoBehaviour:
   m_ObjectHideFlags: 0
