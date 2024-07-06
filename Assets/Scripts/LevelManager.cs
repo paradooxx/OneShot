@@ -5,15 +5,19 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
 
+    [SerializeField] private LevelStatus[] levelStatus;
+
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void StartLevel()
@@ -34,5 +38,17 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public bool IsLevelUnlocked(int index)
+    {
+        if(levelStatus[index].isUnlocked)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

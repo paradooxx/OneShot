@@ -573,12 +573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c8e735274705f4881fff11a0ddefc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelButton:
-  - {fileID: 1345194806}
-  - {fileID: 740952247}
-  - {fileID: 277427682}
-  - {fileID: 690746484}
-  - {fileID: 1150671063}
 --- !u!1 &263700072
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &544268171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1546,6 +1540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e76e1be152820244a3fe4698079e0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelStatus:
+  - {fileID: 11400000, guid: 6fbfd109c3dac904db03800bb0954901, type: 2}
+  - {fileID: 11400000, guid: 646c4b24368bc6d4d98da44ebcf47ffa, type: 2}
+  - {fileID: 11400000, guid: c7b6943036e645e4da8af7f7d3df8055, type: 2}
+  - {fileID: 11400000, guid: 3cdc13ea3249de4499549b9d37530c8a, type: 2}
+  - {fileID: 11400000, guid: 9498b967f87244f4cb178cf2cb12f946, type: 2}
 --- !u!1 &1093898585
 GameObject:
   m_ObjectHideFlags: 0
