@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
+    public static int currentLevelIndex;
 
     [SerializeField] private LevelStatus[] levelStatus;
 
@@ -18,6 +19,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void StartLevel()
@@ -27,7 +29,14 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        SceneManager.LoadSceneAsync(index);
+        if(IsLevelUnlocked(index - 1))
+        {
+            SceneManager.LoadSceneAsync(index);
+        }
+        else
+        {
+            Debug.Log("Level Locked!");
+        }
     }
 
     public void ReLoadLevel()
@@ -37,6 +46,15 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        /* if(levelStatus[SceneManager.GetActiveScene().buildIndex + 1].isUnlocked)
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            Debug.Log("Level is Locked");
+            return;
+        } */
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
