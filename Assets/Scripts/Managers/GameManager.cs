@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
+    //remember to assign level status sc to gamemanager go
     private void GameWinStatus()
     {
         Debug.Log("CURRENT LEVEL: " + currentLevel);
@@ -40,6 +41,12 @@ public class GameManager : MonoBehaviour
         #endif */
 
         uiManager.Deactivate();
+    }
+
+    
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
     private void OnDestroy() 

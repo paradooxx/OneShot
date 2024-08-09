@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+
     public bool IsLevelUnlocked(int index)
     {
         if(levelStatus[index].isUnlocked)
